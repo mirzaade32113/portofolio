@@ -1,0 +1,95 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Scrollable table styles */
+.table-container {
+  overflow-x: auto; /* Enable horizontal scrolling */
+  width: 100%; /* Ensure it takes up the full width */
+  margin-bottom: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse; /* Collapse borders so they appear as a single line */
+  margin: 20px 0;
+  border: 2px solid #000; /* Set the outer border of the table to black */
+}
+
+table caption {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+  text-align: center;
+}
+
+table,
+th,
+td {
+  border: 1px solid #000; /* Set the borders of the table, th, and td to black */
+}
+
+th,
+td {
+  text-align: center;
+  padding: 8px;
+}
+
+th {
+  background-color: #c5d9f1; /* Light blue color */
+  color: #000; /* Black text for better readability */
+  font-weight: bold;
+}
+
+td {
+  text-align: center;
+  padding: 8px;
+}
+
+/* Chart container styles */
+.chart-container {
+  display: flex; /* Enable flexbox */
+  justify-content: center; /* Center the canvas horizontally */
+  align-items: center; /* Center the canvas vertically */
+  width: 100%;
+  height: 300px; /* Adjust height */
+  margin-bottom: 20px;
+}
+
+canvas {
+  width: 80%; /* Set the canvas width */
+  height: 80%; /* Set the canvas height */
+  max-width: 800px; /* Optional: limit the max width */
+  max-height: 400px; /* Optional: limit the max height */
+  border: 1px solid #000; /* Add a border around the canvas (black color) */
+}
+
+/* Responsive styles for mobile */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 20px;
+  }
+
+  th,
+  td {
+    padding: 6px;
+  }
+
+  .chart-container {
+    height: 250px; /* Smaller chart for mobile */
+  }
+
+  canvas {
+    width: 90%; /* Adjust the canvas width on smaller screens */
+    height: 90%; /* Adjust the canvas height on smaller screens */
+  }
+}
