@@ -1,0 +1,4 @@
+#map {
+    width: 100%;  /* Peta akan menyesuaikan lebar kontainer */
+    height: 80vh; /* Peta akan menyesuaikan tinggi berdasarkan viewport */
+}

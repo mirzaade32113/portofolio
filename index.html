@@ -1,209 +1,64 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="id">
   <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Peta dengan CSS dan Leaflet</title>
 
-    <!-- Bootstrap CSS -->   
+    <!-- Link ke Bootstrap CSS (untuk responsivitas) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Link ke CSS Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
 
-    <!--My CSS-->
-    <link rel="stylesheet" href="stylePortofolio.css" />
+    <style>
+      /* Styling untuk peta, memastikan peta responsif */
+      #map {
+        width: 100%; /* Lebar peta 100% dari kontainer induk */
+        height: 400px; /* Tinggi peta */
+      }
 
+      /* Mengatur posisi kontainer untuk pusat peta dan responsivitas */
+      .map-container {
+        max-width: 1200px; /* Maksimal lebar peta */
+        margin: 0 auto; /* Membuat kontainer rata tengah */
+      }
 
-
-    <title>my. portofolio ade ahmad mirza</title>
-    
+      /* Tampilan judul peta */
+      h2 {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+    </style>
   </head>
-  <body id="home">
-    <!-- Navbar-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-danger shadow-sw">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">ade ahmad mirza</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#Home">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#about">about</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#project">project</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#contact menu">contact menu</a> 
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    <!--Akhir Navbar-->
+  <body>
+    <!-- Kontainer Bootstrap -->
+    <div class="container mt-5 map-container">
+      <h2>Peta Interaktif dengan Leaflet</h2>
 
-    <!--jumbotron-->
-    <section class="jumbotron text-center">
-        <img src="img/apalah.jpg" alt="mirza " width="200"  
-        class="rounded-circle"img-thumbnail>
-        <div class="jumbotron">
-            <h1 class="display-4">ADE AHMAD MIRZA</h1>
-            <p class="lead">editor / konten</p>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#rgb(247, 247, 247" fill-opacity="1" d="M0,128L55.4,64L110.8,0L166.2,160L221.5,96L276.9,96L332.3,288L387.7,96L443.1,128L498.5,32L553.8,128L609.2,64L664.6,160L720,64L775.4,64L830.8,160L886.2,256L941.5,256L996.9,320L1052.3,0L1107.7,224L1163.1,0L1218.5,64L1273.8,160L1329.2,32L1384.6,96L1440,224L1440,0L1384.6,0L1329.2,0L1273.8,0L1218.5,0L1163.1,0L1107.7,0L1052.3,0L996.9,0L941.5,0L886.2,0L830.8,0L775.4,0L720,0L664.6,0L609.2,0L553.8,0L498.5,0L443.1,0L387.7,0L332.3,0L276.9,0L221.5,0L166.2,0L110.8,0L55.4,0L0,0Z"></path></svg>
-            
-          </div>
-      <section>
-    <!--Akhir jumbotron-->
+      <!-- Tempat untuk peta -->
+      <div id="map"></div>
+    </div>
 
-    <!--About-->
-    <section id="about">
-        <div class="container">
-            <div class="row text-center mb-3">
-                <div class="coll">
-                    <h2 about me></h2>
-                </div>
-                
-            </div>
-            <div class="row justify-content-start fs-5 text-center">                                              
-             <div class="col-10">                             
-                  <img src="img/apalah.jpg" class="card-img-top" alt="project 1">
-                    <p>HALLOS I AM ADE AHMAD MIRZA SITEPU.</p>
-                </div>
+    <!-- Link ke JavaScript untuk Bootstrap dan Leaflet -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
 
-            </div>
-        </div>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#a2d9ff" fill-opacity="1" d="M0,256L144,192L288,192L432,32L576,192L720,96L864,192L1008,64L1152,64L1296,256L1440,320L1440,0L1296,0L1152,0L1008,0L864,0L720,0L576,0L432,0L288,0L144,0L0,0Z"></path></svg>
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 
+    <script>
+      // Membuat peta menggunakan Leaflet
+      var map = L.map("map").setView([51.505, -0.09], 13); // Koordinat awal dan zoom level
 
-    </section>
-    <!--About Ahkir-->
+      // Menambahkan tile layer (menggunakan OpenStreetMap)
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      }).addTo(map);
 
-    <!--project-->
-    <section id="project" >
-        <div class="container">
-            <div class="row text-center">
-                <div class="col">
-                    <h2>my project</h2>
-                </div>
-            </div>
-            <div class="row justify-content">
-                <div class="col-md-4">
-                    <div class="card" >
-                        <img src="img/lama.png" class="card-img-top" alt="project 1">
-                        <div class="card-body">
-                          <a href="kalkulator/kalkulator.html" target="_blank">KALKULATOR</a>                          
-                        </div>
-                      </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card" >
-                        <img src="img/kabar.png" class="card-img-top" alt="project 1">
-                        <div class="card-body">
-                          <a href="login/login.html" target="_blank">LOGIN</a>
-                        </div>
-                      </div>
-                </div>
-                <div class="col-4">
-                    <div class="card" >
-                        <img src="img/dashbord.png" class="card-img-top" alt="project 1">
-                        <div class="card-body">
-                          <a href="dashbord/Dashboard.html" target="_blank">DASHBOARD </a>
-                        </div>
-                      </div>
-                </div>
-                <div class="col-4">
-                    <div class="card" >
-                        <img src="img/sertifikat.jpg" class="card-img-top" alt="project 1">
-                        <div class="card-body">
-                          <p class="card-text">SERTIFIKAT HTML </p>
-                        </div>
-                      </div>
-                </div>
-                <div class="col-4">
-                    <div class="card" >
-                        <img src="img/SERTIFIKAT CSS.jpg" class="card-img-top" alt="project 1">
-                        <div class="card-body">
-                          <p class="card-text">SERTIFIKAT CSS.</p>
-                        </div>
-                      </div>
-                </div>
-                <div class="col-4">
-                    <div class="card" >
-                        <img src="img/SERTIFIKAT JAVASCRIP.jpg" class="card-img-top" alt="project 1">
-                        <div class="card-body">
-                          <p class="card-text">SERTIFIKAT JAVASCRIP.</p>
-                        </div>
-                      </div>
-                </div>
-                <div class="col-15">
-                    <div class="card" >
-                        <img src="img/tetris.png" class="card-img-top" alt="project 1">
-                        <div class="card-body">
-                          <a href=" https://mirzaade32113.github.io/Tetris/" target="_blank">tetris </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-15">
-                   <div class="card" >
-                      <img src="img/diagram.png" class="card-img-top" alt="project 1">
-                      <div class="card-body">
-                       <a href=" https://mirzaade32113.github.io/dasbors/" target="_blank">dasbors </a> 
-                </div>
-            </div>
-        </div>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#0099ff" fill-opacity="1" d="M0,192L205.7,224L411.4,32L617.1,32L822.9,192L1028.6,128L1234.3,64L1440,64L1440,0L1234.3,0L1028.6,0L822.9,0L617.1,0L411.4,0L205.7,0L0,0Z"></path></svg>
-    </section>
-    <!--project Akhir-->
-
-    <!--contact menu-->
-    <section id="contact menu">
-        <div class="container">
-            <div class="row text-center mb-4">
-                <div class="col">
-                    <h2>contact menu</h2>
-                </div>
-            </div>
-            <div class="row justify-content-center ">
-                <div class="col-md-7">
-                    <form>
-                       <div class="mb-3">
-                          <label for="NAME" class="form-label">NAMA</label>
-                           <input type="text" class="form-control" id="name" aria-describedby="name">
-                          
-                       <div class="mb-3">
-                          <label for="email" class="form-label">Email </label>
-                           <input type="email" class="form-control" id="email" aria-describedby="email">
-                          
-                        </div>
-                        <div class="mb-3">
-                            <label for="pesan" class="form-label">pesan</label>
-                            <textarea class="form-control" id="pesan" rows="3"></textarea>
-                          </div>
-
-                        <button type="submit" class="btn btn-primary">kirim</button>
-                      </form>
-                </div>
-            </div>
-        </div>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#ff5500" fill-opacity="1" d="M0,192L205.7,160L411.4,128L617.1,160L822.9,256L1028.6,64L1234.3,224L1440,320L1440,0L1234.3,0L1028.6,0L822.9,0L617.1,0L411.4,0L205.7,0L0,0Z"></path></svg>
-    </section>
-    <!--contact Akhir-->
-
-    <!--Footer-->
-    <footer class="bg-primary text-blue p-4">
-        <p>my video youtube <a href="https://www.youtube.com/watch?v=Twfb8Afeg_k&t=633s" class="text-blue">mirza ahmad</a></p>
-    </footer>
-    <!--Footer Akhir-->
-
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/
-    bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+
-    NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
-    crossorigin="anonymous"></script>
-
-    
+      // Menambahkan marker ke peta
+      var marker = L.marker([51.505, -0.09]).addTo(map);
+      marker.bindPopup("<b>Ini adalah marker!</b>").openPopup();
+    </script>
   </body>
 </html>
